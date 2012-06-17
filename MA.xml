@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maintenance" default="all">
+  
+  
+  <property file="MA.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.7" value="${jdk.home.1.7}/bin"/>
+  <path id="jdk.classpath.1.7">
+    <fileset dir="${jdk.home.1.7}">
+      <include name="jre/lib/alt-rt.jar"/>
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.7}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.7}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.7"/>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.grails-2.0.0_(2).classpath">
+    <pathelement location="C:/grails-2.0.0/dist/grails-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-bootstrap-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-core-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-crud-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-docs-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-hibernate-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-logging-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-async-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-codecs-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-controllers-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-converters-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-datasource-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-domain-class-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-filters-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-gsp-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-i18n-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-log4j-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-mimetypes-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-scaffolding-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-services-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-servlets-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-testing-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-tomcat-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-url-mappings-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-plugin-validation-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-resources-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-scripts-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-spring-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-test-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-test-suite-base-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-web-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/dist/grails-webflow-2.0.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/antlr/antlr/jars/antlr-2.7.7.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/aopalliance/aopalliance/jars/aopalliance-1.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/asm/asm/jars/asm-3.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/bouncycastle/bcmail-jdk14/jars/bcmail-jdk14-138.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/cglib/cglib/jars/cglib-2.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.google.protobuf/protobuf-java/jars/protobuf-java-2.3.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.googlecode.concurrentlinkedhashmap/concurrentlinkedhashmap-lru/jars/concurrentlinkedhashmap-lru-1.2_jdk5.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.googlecode.json-simple/json-simple/jars/json-simple-1.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.h2database/h2/jars/h2-1.2.147.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.lowagie/itext/jars/itext-2.0.8.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/com.springsource.springloaded/springloaded-core/jars/springloaded-core-1.0.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.8.3.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-cli/commons-cli/jars/commons-cli-1.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-codec/commons-codec/jars/commons-codec-1.5.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-dbcp/commons-dbcp/jars/commons-dbcp-1.4.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-el/commons-el/jars/commons-el-1.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-fileupload/commons-fileupload/jars/commons-fileupload-1.2.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-io/commons-io/jars/commons-io-2.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-lang/commons-lang/jars/commons-lang-2.6.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-pool/commons-pool/jars/commons-pool-1.5.6.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/commons-validator/commons-validator/jars/commons-validator-1.3.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/dom4j/dom4j/jars/dom4j-1.6.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/hsqldb/hsqldb/jars/hsqldb-1.8.0.10.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javassist/javassist/jars/javassist-3.12.0.GA.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.persistence/persistence-api/jars/persistence-api-1.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.servlet.jsp/jsp-api/jars/jsp-api-2.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.servlet/jsp-api/jars/jsp-api-2.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.servlet/jstl/jars/jstl-1.1.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.servlet/servlet-api/jars/servlet-api-2.5.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.transaction/jta/jars/jta-1.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/javax.validation/validation-api/jars/validation-api-1.0.0.GA.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/jline/jline/jars/jline-1.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/junit/junit/jars/junit-4.10.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/log4j/log4j/bundles/log4j-1.2.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/net.java.dev.jna/jna/jars/jna-3.2.3.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/ognl/ognl/jars/ognl-2.7.3.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/opensymphony/sitemesh/jars/sitemesh-2.4.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.antlr/antlr-runtime/jars/antlr-runtime-3.1.3.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.antlr/stringtemplate/jars/stringtemplate-3.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.ant/ant-junit/jars/ant-junit-1.8.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.ant/ant-launcher/jars/ant-launcher-1.8.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.ant/ant/jars/ant-1.8.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.ivy/ivy/jars/ivy-2.2.0.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat.embed/tomcat-embed-jasper/jars/tomcat-embed-jasper-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat.embed/tomcat-embed-logging-log4j/jars/tomcat-embed-logging-log4j-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-annotations-api/jars/tomcat-annotations-api-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-api/jars/tomcat-api-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-catalina-ant/jars/tomcat-catalina-ant-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-catalina/jars/tomcat-catalina-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-coyote/jars/tomcat-coyote-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-juli/jars/tomcat-juli-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-servlet-api/jars/tomcat-servlet-api-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.apache.tomcat/tomcat-util/jars/tomcat-util-7.0.16.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.aspectj/aspectjrt/jars/aspectjrt-1.6.10.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.aspectj/aspectjweaver/jars/aspectjweaver-1.6.10.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.bouncycastle/bcpg-jdk15/jars/bcpg-jdk15-1.45.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.bouncycastle/bcprov-jdk15/jars/bcprov-jdk15-1.45.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.codehaus.gant/gant_groovy1.8/jars/gant_groovy1.8-1.9.6.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.4.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.eclipse.jdt.core.compiler/ecj/jars/ecj-3.6.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.fusesource.jansi/jansi/jars/jansi-1.2.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.grails/grails-datastore-core/jars/grails-datastore-core-1.0.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-1.0.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.0.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.grails/grails-gdoc-engine/jars/grails-gdoc-engine-1.0.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hibernate/hibernate-commons-annotations/jars/hibernate-commons-annotations-3.2.0.Final.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hibernate/hibernate-core/jars/hibernate-core-3.6.7.Final.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hibernate/hibernate-ehcache/jars/hibernate-ehcache-3.6.7.Final.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.hibernate/hibernate-validator/jars/hibernate-validator-4.1.0.Final.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.6.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.slf4j/slf4j-api/jars/slf4j-api-1.6.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework.uaa/org.springframework.uaa.client/bundles/org.springframework.uaa.client-1.0.1.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework.webflow/spring-binding/jars/spring-binding-2.0.8.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework.webflow/spring-js/jars/spring-js-2.0.8.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework.webflow/spring-webflow/jars/spring-webflow-2.0.8.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-aop/jars/spring-aop-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-asm/jars/spring-asm-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-aspects/jars/spring-aspects-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-beans/jars/spring-beans-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-context-support/jars/spring-context-support-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-context/jars/spring-context-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-core/jars/spring-core-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-expression/jars/spring-expression-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-jdbc/jars/spring-jdbc-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-jms/jars/spring-jms-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-orm/jars/spring-orm-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-test/jars/spring-test-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-tx/jars/spring-tx-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-web/jars/spring-web-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.tmatesoft.sqljet/sqljet/jars/sqljet-1.0.4.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.tmatesoft.svnkit/svnkit/jars/svnkit-1.3.5.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.tmatesoft.svnkit/trilead-ssh2/jars/trilead-ssh2-build213-svnkit-1.3-patch.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.xhtmlrenderer/core-renderer/jars/core-renderer-R8.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/org.yaml/snakeyaml/jars/snakeyaml-1.8.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/oro/oro/jars/oro-2.0.8.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/taglibs/standard/jars/standard-1.1.2.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/xalan/serializer/jars/serializer-2.7.1.jar"/>
+    <pathelement location="C:/grails-2.0.0/lib/xpp3/xpp3_min/jars/xpp3_min-1.1.4c.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm.jar"/>
+    <pathelement location="${javac2.home}/asm-commons.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+    <property name="grooovyc.task.sdk" value="library.grails-2.0.0_(2).classpath"/>
+    <taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc" classpathref="${grooovyc.task.sdk}"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_maintenance-grailsplugins.xml"/>
+  
+  <import file="${basedir}/module_maintenance.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.maintenance-grailsplugins, clean.module.maintenance" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.maintenance-grailsplugins, compile.module.maintenance" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

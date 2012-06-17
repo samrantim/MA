@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_maintenance" default="compile.module.maintenance">
+  <dirname property="module.maintenance.basedir" file="${ant.file.module_maintenance}"/>
+  
+  <property name="module.jdk.home.maintenance" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.maintenance" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.maintenance" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.maintenance" value="${compiler.args}"/>
+  
+  <property name="maintenance.output.dir" value="${module.maintenance.basedir}/out/production/Maintenance"/>
+  <property name="maintenance.testoutput.dir" value="${module.maintenance.basedir}/out/test/Maintenance"/>
+  
+  <path id="maintenance.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="maintenance.module.production.classpath">
+    <path refid="${module.jdk.classpath.maintenance}"/>
+    <path refid="library.grails-2.0.0_(2).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+    <pathelement location="${maintenance-grailsplugins.output.dir}"/>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+  </path>
+  
+  <path id="maintenance.runtime.production.module.classpath">
+    <pathelement location="${maintenance.output.dir}"/>
+    <path refid="library.grails-2.0.0_(2).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+    <path refid="maintenance-grailsplugins.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="maintenance.module.classpath">
+    <path refid="${module.jdk.classpath.maintenance}"/>
+    <pathelement location="${maintenance.output.dir}"/>
+    <path refid="library.grails-2.0.0_(2).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+    <pathelement location="${maintenance-grailsplugins.testoutput.dir}"/>
+    <pathelement location="${maintenance-grailsplugins.output.dir}"/>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+  </path>
+  
+  <path id="maintenance.runtime.module.classpath">
+    <pathelement location="${maintenance.testoutput.dir}"/>
+    <pathelement location="${maintenance.output.dir}"/>
+    <path refid="library.grails-2.0.0_(2).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="C:/Users/TIM/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar"/>
+    <path refid="maintenance-grailsplugins.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.maintenance">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.maintenance">
+    <patternset refid="excluded.from.module.maintenance"/>
+  </patternset>
+  
+  <path id="maintenance.module.sourcepath">
+    <dirset dir="${module.maintenance.basedir}">
+      <include name="src/java"/>
+      <include name="grails-app/utils"/>
+      <include name="src/groovy"/>
+      <include name="grails-app/i18n"/>
+      <include name="grails-app/controllers"/>
+      <include name="grails-app/domain"/>
+      <include name="grails-app/services"/>
+      <include name="grails-app/taglib"/>
+    </dirset>
+  </path>
+  
+  <path id="maintenance.module.test.sourcepath">
+    <dirset dir="${module.maintenance.basedir}">
+      <include name="test/unit"/>
+      <include name="test/integration"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.maintenance" depends="compile.module.maintenance.production,compile.module.maintenance.tests" description="Compile module Maintenance"/>
+  
+  <target name="compile.module.maintenance.production" depends="register.custom.compilers,compile.module.maintenance-grailsplugins" description="Compile module Maintenance; production classes">
+    <mkdir dir="${maintenance.output.dir}"/>
+    <javac2 destdir="${maintenance.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.maintenance}/javac">
+      <compilerarg line="${compiler.args.maintenance}"/>
+      <bootclasspath refid="maintenance.module.bootclasspath"/>
+      <classpath refid="maintenance.module.production.classpath"/>
+      <src refid="maintenance.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.maintenance"/>
+    </javac2>
+    
+    <copy todir="${maintenance.output.dir}">
+      <fileset dir="${module.maintenance.basedir}/src/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/utils">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/src/groovy">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/i18n">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/controllers">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/domain">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/services">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/grails-app/taglib">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.maintenance.tests" depends="register.custom.compilers,compile.module.maintenance.production" description="compile module Maintenance; test classes" unless="skip.tests">
+    <mkdir dir="${maintenance.testoutput.dir}"/>
+    <javac2 destdir="${maintenance.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.maintenance}/javac">
+      <compilerarg line="${compiler.args.maintenance}"/>
+      <bootclasspath refid="maintenance.module.bootclasspath"/>
+      <classpath refid="maintenance.module.classpath"/>
+      <src refid="maintenance.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.maintenance"/>
+    </javac2>
+    
+    <copy todir="${maintenance.testoutput.dir}">
+      <fileset dir="${module.maintenance.basedir}/test/unit">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maintenance.basedir}/test/integration">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.maintenance" description="cleanup module">
+    <delete dir="${maintenance.output.dir}"/>
+    <delete dir="${maintenance.testoutput.dir}"/>
+  </target>
+</project>
