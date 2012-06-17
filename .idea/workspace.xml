@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="134999be-668b-44a5-8ba2-0484a108c4ca" name="Default" comment="" />
+    <list default="true" id="134999be-668b-44a5-8ba2-0484a108c4ca" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/index.gsp" />
+    </list>
     <ignored path="Maintenance.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -71,12 +73,12 @@
       <file leaf-file-name="index.gsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="37" selection-start="415" selection-end="415" vertical-scroll-proportion="0.29787233">
+            <state line="24" column="8" selection-start="523" selection-end="523" vertical-scroll-proportion="0.5106383">
               <folding>
-                <marker date="1339843281153" expanded="true" signature="1221:1293" placeholder="{...}" />
-                <marker date="1339843281153" expanded="true" signature="1318:1391" placeholder="{...}" />
-                <marker date="1339843281153" expanded="true" signature="1483:2432" placeholder="&lt;xml/&gt;" />
-                <marker date="1339843281153" expanded="true" signature="1508:2421" placeholder="&lt;xml/&gt;" />
+                <marker date="1339906060491" expanded="true" signature="1222:1294" placeholder="{...}" />
+                <marker date="1339906060491" expanded="true" signature="1319:1392" placeholder="{...}" />
+                <marker date="1339906060491" expanded="true" signature="1484:2433" placeholder="&lt;xml/&gt;" />
+                <marker date="1339906060491" expanded="true" signature="1509:2422" placeholder="&lt;xml/&gt;" />
               </folding>
             </state>
           </provider>
@@ -837,12 +839,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="37" selection-start="415" selection-end="415" vertical-scroll-proportion="0.29787233">
+        <state line="24" column="8" selection-start="523" selection-end="523" vertical-scroll-proportion="0.5106383">
           <folding>
-            <marker date="1339843281153" expanded="true" signature="1221:1293" placeholder="{...}" />
-            <marker date="1339843281153" expanded="true" signature="1318:1391" placeholder="{...}" />
-            <marker date="1339843281153" expanded="true" signature="1483:2432" placeholder="&lt;xml/&gt;" />
-            <marker date="1339843281153" expanded="true" signature="1508:2421" placeholder="&lt;xml/&gt;" />
+            <marker date="1339906060491" expanded="true" signature="1222:1294" placeholder="{...}" />
+            <marker date="1339906060491" expanded="true" signature="1319:1392" placeholder="{...}" />
+            <marker date="1339906060491" expanded="true" signature="1484:2433" placeholder="&lt;xml/&gt;" />
+            <marker date="1339906060491" expanded="true" signature="1509:2422" placeholder="&lt;xml/&gt;" />
           </folding>
         </state>
       </provider>
